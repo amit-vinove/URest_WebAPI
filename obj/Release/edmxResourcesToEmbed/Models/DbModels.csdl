@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UfirmApp_ProductionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MemberComplaintRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mobile" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PropertyMember">
+    <Key>
+      <PropertyRef Name="PropertyMemberId" />
+    </Key>
+    <Property Name="PropertyMemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Gendar" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ParentMemberId" Type="Int32" />
+    <Property Name="ResidentTypeId" Type="Int32" />
+    <Property Name="RelationshipTypeId" Type="Int32" />
+    <Property Name="AlternateContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProfileimageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalComments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsResiding" Type="Boolean" />
+    <Property Name="AccessKey" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeactivated" Type="Boolean" />
+    <Property Name="DeactivatedOn" Type="DateTime" Precision="3" />
+    <Property Name="DeactivatedBy" Type="Int32" />
+    <Property Name="IsPrimary" Type="Boolean" />
+    <Property Name="PrimaryOwnerId" Type="Int32" />
+    <Property Name="IsOwner" Type="Boolean" />
+    <NavigationProperty Name="PropertyMember1" Relationship="Self.FK_PropertyOwner_PropertyOwner" FromRole="PropertyMember" ToRole="PropertyMember1" />
+    <NavigationProperty Name="PropertyMember2" Relationship="Self.FK_PropertyOwner_PropertyOwner" FromRole="PropertyMember1" ToRole="PropertyMember" />
+    <NavigationProperty Name="PropertyMember11" Relationship="Self.FK_PropertyOwner_PropertyOwner1" FromRole="PropertyMember" ToRole="PropertyMember1" />
+    <NavigationProperty Name="PropertyMember3" Relationship="Self.FK_PropertyOwner_PropertyOwner1" FromRole="PropertyMember1" ToRole="PropertyMember" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketOrigin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ParentTicketId" Type="Int32" />
+    <Property Name="TicketNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TicketPriorityId" Type="Int32" />
+    <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="ActualCloseDate" Type="DateTime" Precision="3" />
+    <Property Name="ReportedBy" Type="Int32" />
+    <Property Name="TicketTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PropertyDetaildId" Type="Int32" />
+    <Property Name="StatusTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ExpectedCloseDate" Type="DateTime" Precision="3" />
+    <Property Name="PropertyId" Type="Int32" />
+    <Property Name="LastUpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastupdatedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="IsPaused" Type="Boolean" />
+    <Property Name="PausedBy" Type="Int32" />
+    <Property Name="PausedDate" Type="DateTime" Precision="3" />
+    <Property Name="PausedTilDate" Type="DateTime" Precision="3" />
+    <Property Name="PausedComment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsReopen" Type="Boolean" />
+    <Property Name="ReOpenOn" Type="DateTime" Precision="3" />
+    <Property Name="ReopenBy" Type="Int32" />
+    <Property Name="ReopenReason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TicketChannel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Visibility" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ticket1" Relationship="Self.FK_Ticket_Ticket" FromRole="Ticket" ToRole="Ticket1" />
+    <NavigationProperty Name="Ticket2" Relationship="Self.FK_Ticket_Ticket" FromRole="Ticket1" ToRole="Ticket" />
+  </EntityType>
+  <Association Name="FK_PropertyOwner_PropertyOwner">
+    <End Role="PropertyMember" Type="Self.PropertyMember" Multiplicity="1" />
+    <End Role="PropertyMember1" Type="Self.PropertyMember" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyMember">
+        <PropertyRef Name="PropertyMemberId" />
+      </Principal>
+      <Dependent Role="PropertyMember1">
+        <PropertyRef Name="PropertyMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyOwner_PropertyOwner1">
+    <End Role="PropertyMember" Type="Self.PropertyMember" Multiplicity="1" />
+    <End Role="PropertyMember1" Type="Self.PropertyMember" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyMember">
+        <PropertyRef Name="PropertyMemberId" />
+      </Principal>
+      <Dependent Role="PropertyMember1">
+        <PropertyRef Name="PropertyMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Ticket">
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+    <End Role="Ticket1" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="TicketId" />
+      </Principal>
+      <Dependent Role="Ticket1">
+        <PropertyRef Name="ParentTicketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UfirmApp_ProductionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MemberComplaintRegistrations" EntityType="Self.MemberComplaintRegistration" />
+    <EntitySet Name="PropertyMembers" EntityType="Self.PropertyMember" />
+    <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+    <AssociationSet Name="FK_PropertyOwner_PropertyOwner" Association="Self.FK_PropertyOwner_PropertyOwner">
+      <End Role="PropertyMember" EntitySet="PropertyMembers" />
+      <End Role="PropertyMember1" EntitySet="PropertyMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyOwner_PropertyOwner1" Association="Self.FK_PropertyOwner_PropertyOwner1">
+      <End Role="PropertyMember" EntitySet="PropertyMembers" />
+      <End Role="PropertyMember1" EntitySet="PropertyMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Ticket" Association="Self.FK_Ticket_Ticket">
+      <End Role="Ticket" EntitySet="Tickets" />
+      <End Role="Ticket1" EntitySet="Tickets" />
+    </AssociationSet>
+    <FunctionImport Name="GetComplaints" ReturnType="Collection(UfirmApp_ProductionModel.GetComplaints_Result)">
+      <Parameter Name="Mobile" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetComplaints_Result">
+    <Property Type="Int32" Name="TicketId" Nullable="false" />
+    <Property Type="String" Name="TicketOrigin" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="ParentTicketId" Nullable="true" />
+    <Property Type="String" Name="TicketNumber" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="1500" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="3000" />
+    <Property Type="Int32" Name="TicketPriorityId" Nullable="true" />
+    <Property Type="String" Name="Label" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ActualCloseDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ReportedBy" Nullable="true" />
+    <Property Type="Int32" Name="TicketTypeId" Nullable="false" />
+    <Property Type="Int32" Name="PropertyDetaildId" Nullable="true" />
+    <Property Type="Int32" Name="StatusTypeId" Nullable="false" />
+    <Property Type="DateTime" Name="ExpectedCloseDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PropertyId" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="LastupdatedBy" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="Boolean" Name="IsPaused" Nullable="true" />
+    <Property Type="Int32" Name="PausedBy" Nullable="true" />
+    <Property Type="DateTime" Name="PausedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="PausedTilDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PausedComment" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsReopen" Nullable="true" />
+    <Property Type="DateTime" Name="ReOpenOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ReopenBy" Nullable="true" />
+    <Property Type="String" Name="ReopenReason" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TicketChannel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visibility" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="PropertyMemberId" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Gendar" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="ParentMemberId" Nullable="true" />
+    <Property Type="Int32" Name="ResidentTypeId" Nullable="true" />
+    <Property Type="Int32" Name="RelationshipTypeId" Nullable="true" />
+    <Property Type="String" Name="AlternateContactNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ProfileimageUrl" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedOn1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreatedBy1" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
+    <Property Type="Int32" Name="ApprovedBy" Nullable="true" />
+    <Property Type="DateTime" Name="ApprovedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ApprovalComments" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="IsResiding" Nullable="true" />
+    <Property Type="String" Name="AccessKey" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="IsDeactivated" Nullable="true" />
+    <Property Type="DateTime" Name="DeactivatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DeactivatedBy" Nullable="true" />
+    <Property Type="Boolean" Name="IsPrimary" Nullable="true" />
+    <Property Type="Int32" Name="PrimaryOwnerId" Nullable="true" />
+    <Property Type="Boolean" Name="IsOwner" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UfirmApp_ProductionModelStoreContainer" CdmEntityContainer="UfirmApp_ProductionEntities">
+    <EntitySetMapping Name="MemberComplaintRegistrations">
+      <EntityTypeMapping TypeName="UfirmApp_ProductionModel.MemberComplaintRegistration">
+        <MappingFragment StoreEntitySet="MemberComplaintRegistration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyMembers">
+      <EntityTypeMapping TypeName="UfirmApp_ProductionModel.PropertyMember">
+        <MappingFragment StoreEntitySet="PropertyMember">
+          <ScalarProperty Name="PropertyMemberId" ColumnName="PropertyMemberId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gendar" ColumnName="Gendar" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ParentMemberId" ColumnName="ParentMemberId" />
+          <ScalarProperty Name="ResidentTypeId" ColumnName="ResidentTypeId" />
+          <ScalarProperty Name="RelationshipTypeId" ColumnName="RelationshipTypeId" />
+          <ScalarProperty Name="AlternateContactNumber" ColumnName="AlternateContactNumber" />
+          <ScalarProperty Name="ProfileimageUrl" ColumnName="ProfileimageUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+          <ScalarProperty Name="ApprovalComments" ColumnName="ApprovalComments" />
+          <ScalarProperty Name="IsResiding" ColumnName="IsResiding" />
+          <ScalarProperty Name="AccessKey" ColumnName="AccessKey" />
+          <ScalarProperty Name="IsDeactivated" ColumnName="IsDeactivated" />
+          <ScalarProperty Name="DeactivatedOn" ColumnName="DeactivatedOn" />
+          <ScalarProperty Name="DeactivatedBy" ColumnName="DeactivatedBy" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="PrimaryOwnerId" ColumnName="PrimaryOwnerId" />
+          <ScalarProperty Name="IsOwner" ColumnName="IsOwner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="UfirmApp_ProductionModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+          <ScalarProperty Name="TicketOrigin" ColumnName="TicketOrigin" />
+          <ScalarProperty Name="ParentTicketId" ColumnName="ParentTicketId" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TicketPriorityId" ColumnName="TicketPriorityId" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ActualCloseDate" ColumnName="ActualCloseDate" />
+          <ScalarProperty Name="ReportedBy" ColumnName="ReportedBy" />
+          <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+          <ScalarProperty Name="PropertyDetaildId" ColumnName="PropertyDetaildId" />
+          <ScalarProperty Name="StatusTypeId" ColumnName="StatusTypeId" />
+          <ScalarProperty Name="ExpectedCloseDate" ColumnName="ExpectedCloseDate" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+          <ScalarProperty Name="LastupdatedBy" ColumnName="LastupdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsPaused" ColumnName="IsPaused" />
+          <ScalarProperty Name="PausedBy" ColumnName="PausedBy" />
+          <ScalarProperty Name="PausedDate" ColumnName="PausedDate" />
+          <ScalarProperty Name="PausedTilDate" ColumnName="PausedTilDate" />
+          <ScalarProperty Name="PausedComment" ColumnName="PausedComment" />
+          <ScalarProperty Name="IsReopen" ColumnName="IsReopen" />
+          <ScalarProperty Name="ReOpenOn" ColumnName="ReOpenOn" />
+          <ScalarProperty Name="ReopenBy" ColumnName="ReopenBy" />
+          <ScalarProperty Name="ReopenReason" ColumnName="ReopenReason" />
+          <ScalarProperty Name="TicketChannel" ColumnName="TicketChannel" />
+          <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetComplaints" FunctionName="UfirmApp_ProductionModel.Store.GetComplaints">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UfirmApp_ProductionModel.GetComplaints_Result">
+          <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+          <ScalarProperty Name="TicketOrigin" ColumnName="TicketOrigin" />
+          <ScalarProperty Name="ParentTicketId" ColumnName="ParentTicketId" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TicketPriorityId" ColumnName="TicketPriorityId" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ActualCloseDate" ColumnName="ActualCloseDate" />
+          <ScalarProperty Name="ReportedBy" ColumnName="ReportedBy" />
+          <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+          <ScalarProperty Name="PropertyDetaildId" ColumnName="PropertyDetaildId" />
+          <ScalarProperty Name="StatusTypeId" ColumnName="StatusTypeId" />
+          <ScalarProperty Name="ExpectedCloseDate" ColumnName="ExpectedCloseDate" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+          <ScalarProperty Name="LastupdatedBy" ColumnName="LastupdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsPaused" ColumnName="IsPaused" />
+          <ScalarProperty Name="PausedBy" ColumnName="PausedBy" />
+          <ScalarProperty Name="PausedDate" ColumnName="PausedDate" />
+          <ScalarProperty Name="PausedTilDate" ColumnName="PausedTilDate" />
+          <ScalarProperty Name="PausedComment" ColumnName="PausedComment" />
+          <ScalarProperty Name="IsReopen" ColumnName="IsReopen" />
+          <ScalarProperty Name="ReOpenOn" ColumnName="ReOpenOn" />
+          <ScalarProperty Name="ReopenBy" ColumnName="ReopenBy" />
+          <ScalarProperty Name="ReopenReason" ColumnName="ReopenReason" />
+          <ScalarProperty Name="TicketChannel" ColumnName="TicketChannel" />
+          <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+          <ScalarProperty Name="PropertyMemberId" ColumnName="PropertyMemberId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gendar" ColumnName="Gendar" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ParentMemberId" ColumnName="ParentMemberId" />
+          <ScalarProperty Name="ResidentTypeId" ColumnName="ResidentTypeId" />
+          <ScalarProperty Name="RelationshipTypeId" ColumnName="RelationshipTypeId" />
+          <ScalarProperty Name="AlternateContactNumber" ColumnName="AlternateContactNumber" />
+          <ScalarProperty Name="ProfileimageUrl" ColumnName="ProfileimageUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn1" ColumnName="CreatedOn1" />
+          <ScalarProperty Name="CreatedBy1" ColumnName="CreatedBy1" />
+          <ScalarProperty Name="UpdatedOn1" ColumnName="UpdatedOn1" />
+          <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+          <ScalarProperty Name="ApprovalComments" ColumnName="ApprovalComments" />
+          <ScalarProperty Name="IsResiding" ColumnName="IsResiding" />
+          <ScalarProperty Name="AccessKey" ColumnName="AccessKey" />
+          <ScalarProperty Name="IsDeactivated" ColumnName="IsDeactivated" />
+          <ScalarProperty Name="DeactivatedOn" ColumnName="DeactivatedOn" />
+          <ScalarProperty Name="DeactivatedBy" ColumnName="DeactivatedBy" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="PrimaryOwnerId" ColumnName="PrimaryOwnerId" />
+          <ScalarProperty Name="IsOwner" ColumnName="IsOwner" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

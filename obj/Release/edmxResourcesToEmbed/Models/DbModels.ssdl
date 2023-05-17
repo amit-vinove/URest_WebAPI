@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UfirmApp_ProductionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MemberComplaintRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PropertyMember">
+    <Key>
+      <PropertyRef Name="PropertyMemberId" />
+    </Key>
+    <Property Name="PropertyMemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Gendar" Type="nvarchar" MaxLength="12" />
+    <Property Name="ContactNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParentMemberId" Type="int" />
+    <Property Name="ResidentTypeId" Type="int" />
+    <Property Name="RelationshipTypeId" Type="int" />
+    <Property Name="AlternateContactNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProfileimageUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovedOn" Type="datetime" />
+    <Property Name="ApprovalComments" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsResiding" Type="bit" />
+    <Property Name="AccessKey" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsDeactivated" Type="bit" />
+    <Property Name="DeactivatedOn" Type="datetime" />
+    <Property Name="DeactivatedBy" Type="int" />
+    <Property Name="IsPrimary" Type="bit" />
+    <Property Name="PrimaryOwnerId" Type="int" />
+    <Property Name="IsOwner" Type="bit" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TicketOrigin" Type="nvarchar" MaxLength="20" />
+    <Property Name="ParentTicketId" Type="int" />
+    <Property Name="TicketNumber" Type="nvarchar" MaxLength="10" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="3000" Nullable="false" />
+    <Property Name="TicketPriorityId" Type="int" />
+    <Property Name="Label" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="ActualCloseDate" Type="datetime" />
+    <Property Name="ReportedBy" Type="int" />
+    <Property Name="TicketTypeId" Type="int" Nullable="false" />
+    <Property Name="PropertyDetaildId" Type="int" />
+    <Property Name="StatusTypeId" Type="int" Nullable="false" />
+    <Property Name="ExpectedCloseDate" Type="datetime" />
+    <Property Name="PropertyId" Type="int" />
+    <Property Name="LastUpdatedOn" Type="datetime" />
+    <Property Name="LastupdatedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsPaused" Type="bit" />
+    <Property Name="PausedBy" Type="int" />
+    <Property Name="PausedDate" Type="datetime" />
+    <Property Name="PausedTilDate" Type="datetime" />
+    <Property Name="PausedComment" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsReopen" Type="bit" />
+    <Property Name="ReOpenOn" Type="datetime" />
+    <Property Name="ReopenBy" Type="int" />
+    <Property Name="ReopenReason" Type="nvarchar" MaxLength="100" />
+    <Property Name="TicketChannel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visibility" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_PropertyOwner_PropertyOwner">
+    <End Role="PropertyMember" Type="Self.PropertyMember" Multiplicity="1" />
+    <End Role="PropertyMember1" Type="Self.PropertyMember" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyMember">
+        <PropertyRef Name="PropertyMemberId" />
+      </Principal>
+      <Dependent Role="PropertyMember1">
+        <PropertyRef Name="PropertyMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyOwner_PropertyOwner1">
+    <End Role="PropertyMember" Type="Self.PropertyMember" Multiplicity="1" />
+    <End Role="PropertyMember1" Type="Self.PropertyMember" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyMember">
+        <PropertyRef Name="PropertyMemberId" />
+      </Principal>
+      <Dependent Role="PropertyMember1">
+        <PropertyRef Name="PropertyMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Ticket">
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+    <End Role="Ticket1" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="TicketId" />
+      </Principal>
+      <Dependent Role="Ticket1">
+        <PropertyRef Name="ParentTicketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetComplaints" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="App">
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="UfirmApp_ProductionModelStoreContainer">
+    <EntitySet Name="MemberComplaintRegistration" EntityType="Self.MemberComplaintRegistration" Schema="App" store:Type="Tables" />
+    <EntitySet Name="PropertyMember" EntityType="Self.PropertyMember" Schema="App" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="App" store:Type="Tables" />
+    <AssociationSet Name="FK_PropertyOwner_PropertyOwner" Association="Self.FK_PropertyOwner_PropertyOwner">
+      <End Role="PropertyMember" EntitySet="PropertyMember" />
+      <End Role="PropertyMember1" EntitySet="PropertyMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyOwner_PropertyOwner1" Association="Self.FK_PropertyOwner_PropertyOwner1">
+      <End Role="PropertyMember" EntitySet="PropertyMember" />
+      <End Role="PropertyMember1" EntitySet="PropertyMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Ticket" Association="Self.FK_Ticket_Ticket">
+      <End Role="Ticket" EntitySet="Ticket" />
+      <End Role="Ticket1" EntitySet="Ticket" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
